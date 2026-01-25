@@ -33,7 +33,7 @@ export const config = {
         if (user && user.password) {
           const isMatch = compareSync(
             credentials.password as string,
-            user.password
+            user.password,
           );
           if (isMatch) {
             return {
@@ -45,13 +45,14 @@ export const config = {
           }
           return null;
         }
+        return null;
       },
     }),
   ],
   callbacks: {
-    async session({ session, user, trigger, token }: any) {
+    async session({ session, user, trigger, token }) {
       // set the user id from the token
-      session.user.id = token.sub;
+      session.user.id = token.sub!;
       // if there is update, set the user name
       if (trigger === "update") {
         session.user.name = user.name;
