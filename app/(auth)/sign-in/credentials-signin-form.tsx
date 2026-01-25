@@ -39,7 +39,7 @@ const CredentialsSignInForm = () => {
       } else {
         setLoginError(response.message);
       }
-    } catch (error) {
+    } catch {
       setLoginError("Error! Something went wrong");
     }
   };
@@ -103,7 +103,7 @@ const CredentialsSignInForm = () => {
         )}
       </div>
       <div className="text-sm text-center text-muted-foreground mt-8">
-        Don't have an account?{" "}
+        Don&apos;t have an account?{" "}
         <Link href={"/sign-up"} className="underline">
           Sign Up
         </Link>
